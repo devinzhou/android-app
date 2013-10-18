@@ -33,7 +33,7 @@ public class BaseActivity extends Activity {
 				+ " onCreate() invoked!!");
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		MobclickAgent.onError(this);
+//		MobclickAgent.onError(this);
 
 	}
 

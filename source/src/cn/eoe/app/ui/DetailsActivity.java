@@ -31,6 +31,7 @@ import cn.eoe.app.ui.base.BaseActivity;
 import cn.eoe.app.utils.CommonUtil;
 import cn.eoe.app.utils.IntentUtil;
 import cn.eoe.app.utils.Utility;
+import cn.eoe.app.widget.TitleBar;
 
 public class DetailsActivity extends BaseActivity implements OnClickListener {
 
@@ -52,7 +53,7 @@ public class DetailsActivity extends BaseActivity implements OnClickListener {
     private boolean IsGood = false;
     private boolean IsBed = false;
     private boolean IsCollect = false;
-    private TextView detailTitle;
+    private TitleBar detailTitle;
 
     private LinearLayout loadLayout;
     private LinearLayout failLayout;
@@ -76,13 +77,18 @@ public class DetailsActivity extends BaseActivity implements OnClickListener {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_activity);
+        
         Intent i = getIntent();
         mUrl = i.getStringExtra("url");
         mTitle = i.getStringExtra("title");
         shareTitle = i.getStringExtra("sharetitle");
+        
         sharePre = getSharedPreferences(UserLoginUidActivity.SharedName,
                 Context.MODE_PRIVATE);
+        
         mKey = sharePre.getString(UserLoginUidActivity.KEY, "");
+        
+        
         initData();
         initControl();
         initAppraise();
@@ -96,8 +102,9 @@ public class DetailsActivity extends BaseActivity implements OnClickListener {
 
     private void initControl() {
         detailDao = new DetailDao(this, mUrl);
-        detailTitle = (TextView) findViewById(R.id.details_textview_title);
-        detailTitle.setText(mTitle);
+        detailTitle = (TitleBar) findViewById(R.id.titleBar);
+        detailTitle.setTitle(mTitle);
+                
         loadLayout = (LinearLayout) findViewById(R.id.view_loading);
         failLayout = (LinearLayout) findViewById(R.id.view_load_fail);
         bn_refresh=(Button)findViewById(R.id.bn_refresh);
@@ -125,14 +132,7 @@ public class DetailsActivity extends BaseActivity implements OnClickListener {
         imgCollect = (ImageView) findViewById(R.id.imageview_details_collect);
         imgShare = (ImageView) findViewById(R.id.imageview_details_share);
         imgDiscuss = (ImageView) findViewById(R.id.imageview_details_discuss);
-        imgGoHome = (ImageView) findViewById(R.id.details_imageview_gohome);
-        imgGoHome.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                finish();
-            }
-        });
+        
         MyTask mTask = new MyTask();
         mTask.execute();
     }

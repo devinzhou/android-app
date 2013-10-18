@@ -26,10 +26,10 @@ public class SearchDao extends BaseDao {
 
 	public SearchDao(Activity activity) {
 		super(activity);
-		// TODO Auto-generated constructor stub
+		tabs = new ArrayList<CategorysEntity>();
 	}
 
-	List<CategorysEntity> tabs = new ArrayList<CategorysEntity>();
+	List<CategorysEntity> tabs = null;
 
 	public SearchDao(String tag, String key) {
 		this.mTag = tag;

@@ -533,6 +533,7 @@ public class MainActivity extends BaseSlidingFragmentActivity implements
 
         @Override
         protected Map<String, Object> doInBackground(BaseDao... params) {
+        	
             BaseDao dao = params[0];
             List<CategorysEntity> categorys = new ArrayList<CategorysEntity>();
             Map<String, Object> map = new HashMap<String, Object>();

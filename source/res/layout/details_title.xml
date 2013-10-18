@@ -9,12 +9,15 @@
         style="@style/title_right_button"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
         android:src="@drawable/button_details_gohome" />
 
     <TextView
         android:id="@+id/details_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_gravity="center"
         android:text="精选资讯"
         android:textColor="#fff"

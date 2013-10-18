@@ -5,7 +5,7 @@
     android:background="#f5f5f5"
     android:orientation="vertical" >
 
-    <include layout="@layout/details_title" />
+    <include layout="@layout/meau_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
